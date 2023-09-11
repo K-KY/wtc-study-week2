@@ -8,8 +8,16 @@ import java.util.List;
 
 public class NumberGenerator {
     private final List<Integer> generatedNumbers = new ArrayList<>();
-    public NumberGenerator{
+    private NumberGenerator() {
         numberGenerate();
+    }
+    //싱글톤 패턴으로 객체가 하나만 생성되게 만든다
+    private static class GeneratorSingleton {
+        private static final NumberGenerator generator = new NumberGenerator();
+    }
+    //싱글톤 객체를 리턴한다
+    public static NumberGenerator getInstance() {
+        return GeneratorSingleton.generator;
     }
     //번호를 생성
     private void numberGenerate() {
