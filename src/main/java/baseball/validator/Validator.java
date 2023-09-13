@@ -15,5 +15,12 @@ public class Validator {
             throw new IllegalArgumentException("3개의 숫자를 입력해주세요");
         }
     }
+    public void validateNumberDuplicate(String input) {
+        List<String> list = Arrays.asList(input.split(""));
+        if (input.length() != list.stream().distinct().count()) {
+            throw new IllegalArgumentException("중복되지 않는 숫자를 입력해주세요.");
+        }
+
+    }
 
 }
