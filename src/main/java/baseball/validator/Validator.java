@@ -4,11 +4,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Validator {
-    public void validateNumber(String input) {
+    //검증 메소드를 모두 호출하고 리스트를 리턴한다.
+    public List<String> validateNumber(String input) {
         validateType(input);
         validateNumberRange(input);
         validateNumberLength(input);
         validateNumberDuplicate(input);
+        return Arrays.asList(input.split(""));
     }
     //숫자가 아닌 값이 있는지 확인한다.
     private void validateType(String input) {
