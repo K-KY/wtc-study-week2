@@ -8,9 +8,15 @@ import java.util.List;
 public class Validator {
     //검증 메소드를 모두 호출하고 리스트를 리턴한다.
     public List<Integer> validateNumber(String input) {
+        validateNumberRange(input);
+        validateType(input);
+        validateNumberLength(input);
+        validateNumberDuplicate(input);
+//왜 이렇게 쓰면 테스트가 실패하는걸까
+/*
         try{
-            validateType(input);
             validateNumberRange(input);
+            validateType(input);
             validateNumberLength(input);
             validateNumberDuplicate(input);
 
@@ -20,6 +26,7 @@ public class Validator {
             //에러 로그 출력
             e.printStackTrace();
         }
+*/
         //String 타입의 리스트를 Integer 타입으로 변경
         return new IntegerParsing().toInteger(input.split(""));
     }
