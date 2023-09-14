@@ -6,16 +6,26 @@ import java.util.List;
 public class Validator {
     //검증 메소드를 모두 호출하고 리스트를 리턴한다.
     public List<String> validateNumber(String input) {
-        validateType(input);
-        validateNumberRange(input);
-        validateNumberLength(input);
-        validateNumberDuplicate(input);
+        try{
+            validateType(input);
+            validateNumberRange(input);
+            validateNumberLength(input);
+            validateNumberDuplicate(input);
+
+        }catch (Exception e) {
+            //에러 메세지 출력
+            System.out.println(e.getMessage());
+            //에러 로그 출력
+            e.printStackTrace();
+        }
         return Arrays.asList(input.split(""));
     }
     //숫자가 아닌 값이 있는지 확인한다.
     private void validateType(String input) {
-        if (!input.matches("(.*)[0-9](.*)")) {
-            throw new IllegalArgumentException("숫자를 입력해주세요.");
+        for (int i = 0; i < input.length(); i++) {
+            if (!String.valueOf(input.charAt(i)).matches("(.*)[0-9](.*)")) {
+                throw new IllegalArgumentException("숫자를 입력해주세요.");
+            }
         }
     }
     //0이 존재하는지 확인한다
