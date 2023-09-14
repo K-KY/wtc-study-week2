@@ -1,11 +1,13 @@
 package baseball.validator;
 
+import baseball.userinput.IntegerParsing;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class Validator {
     //검증 메소드를 모두 호출하고 리스트를 리턴한다.
-    public List<String> validateNumber(String input) {
+    public List<Integer> validateNumber(String input) {
         try{
             validateType(input);
             validateNumberRange(input);
@@ -18,7 +20,8 @@ public class Validator {
             //에러 로그 출력
             e.printStackTrace();
         }
-        return Arrays.asList(input.split(""));
+        //String 타입의 리스트를 Integer 타입으로 변경
+        return new IntegerParsing().toInteger(input.split(""));
     }
     //숫자가 아닌 값이 있는지 확인한다.
     private void validateType(String input) {
