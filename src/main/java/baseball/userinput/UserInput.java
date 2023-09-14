@@ -16,4 +16,7 @@ public class UserInput {
         userInputNumber.addAll(validator.validateNumber(userNumber));
     }
 
+    public List<String> getUserInputNumber() {
+        return userInputNumber;
+    }
 }
