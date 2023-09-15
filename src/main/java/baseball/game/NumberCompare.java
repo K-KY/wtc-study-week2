@@ -18,4 +18,11 @@ public class NumberCompare {
             strike += 3;
         }
     }
+    void findStrike() {
+        for (int i = 0; i < computer.size(); i++) {
+            if (computer.get(i).equals(user.get(i))) {
+                strike++;
+            }
+        }
+    }
 }
