@@ -25,4 +25,12 @@ public class NumberCompare {
             }
         }
     }
+    void findBall() {
+        computer.forEach(v -> {
+            if (user.contains(v)) {
+                ball++;
+            };
+        });
+        ball = ball - strike;
+    }
 }
