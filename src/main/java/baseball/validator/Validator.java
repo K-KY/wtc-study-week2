@@ -66,5 +66,13 @@ public class Validator {
         }
 
     }
+    public int validateUserChoice(String userChoice) {
+        validateType(userChoice);
+        if (userChoice.length() != 1 || Integer.parseInt(userChoice) < 3) {
+            throw new IllegalArgumentException("1 또는 2를 입력해주세요");
+        }
+        validateNumberRange(userChoice);
+        return Integer.parseInt(userChoice);
+    }
 
 }
