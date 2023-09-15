@@ -10,7 +10,7 @@ public class ResultOutput {
     }
     private void printBall(int ball) {
         if (ball != 0) {
-            System.out.println(ball + "스트라이크 ");
+            System.out.println(ball + "볼 ");
         }
     }
     private void printStrike(int Strike) {
