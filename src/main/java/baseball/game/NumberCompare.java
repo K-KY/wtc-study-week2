@@ -31,6 +31,14 @@ public class NumberCompare {
                 ball++;
             };
         });
+        //contains 를 사용해서 strike 여도 ball 이 올라간다.
+        //{1,2,3} ,{1,3,2} 일 경우 strike = 1, ball = 3
+        //그래서 ball 에서 strike 만큼 빼준다.
         ball = ball - strike;
+    }
+
+    //user.size() = 3, ball = 1, strike = 1 일 때 낫싱은 3 - (ball + strike)
+    void findNothing() {
+        nothing = user.size() - (ball + strike);
     }
 }
