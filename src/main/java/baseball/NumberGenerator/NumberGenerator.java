@@ -30,6 +30,10 @@ public class NumberGenerator {
         }
     }
 
+    public void reset() {
+        generatedNumbers.clear();
+        numberGenerate();
+    }
 
     //생성된 번호를 리턴한다
     public List<Integer> getGeneratedNumbers() {
