@@ -24,7 +24,6 @@ public class UserInput {
         Validator validator = new Validator();
         System.out.print("숫자를 입력해주세요 : ");
         String userNumber = Console.readLine();
-        System.out.println();
         userInputNumber.addAll(validator.validateNumber(userNumber));
     }
 
