@@ -8,9 +8,15 @@ import java.util.List;
 public class Validator {
     //검증 메소드를 모두 호출하고 리스트를 리턴한다.
     public List<Integer> validateNumber(String input) {
+        validateNumberRange(input);
+        validateType(input);
+        validateNumberLength(input);
+        validateNumberDuplicate(input);
+//왜 이렇게 쓰면 테스트가 실패하는걸
+/*
         try{
-            validateType(input);
             validateNumberRange(input);
+            validateType(input);
             validateNumberLength(input);
             validateNumberDuplicate(input);
 
@@ -20,9 +26,11 @@ public class Validator {
             //에러 로그 출력
             e.printStackTrace();
         }
+*/
         //String 타입의 리스트를 Integer 타입으로 변경
         return new IntegerParsing().toInteger(input.split(""));
     }
+
     //숫자가 아닌 값이 있는지 확인한다.
     private void validateType(String input) {
         for (int i = 0; i < input.length(); i++) {
@@ -31,22 +39,29 @@ public class Validator {
             }
         }
     }
+
     //0이 존재하는지 확인한다
     private void validateNumberRange(String input) {
         if (input.contains("0")) {
+
+            new IllegalArgumentException("숫자 범위는 1 ~ 9 입니다").printStackTrace();
             throw new IllegalArgumentException("숫자 범위는 1 ~ 9 입니다");
         }
     }
+
     //길이가 3인지 확인한다
     private void validateNumberLength(String input) {
         if (input.length() != 3) {
+            new IllegalArgumentException("3개의 숫자를 입력해주세요").printStackTrace();
             throw new IllegalArgumentException("3개의 숫자를 입력해주세요");
         }
     }
+
     //숫자가 중복되는지 확인한다.
     private void validateNumberDuplicate(String input) {
         List<String> list = Arrays.asList(input.split(""));
         if (input.length() != list.stream().distinct().count()) {
+            new IllegalArgumentException("중복되지 않는 숫자를 입력해주세요.").printStackTrace();
             throw new IllegalArgumentException("중복되지 않는 숫자를 입력해주세요.");
         }
 
