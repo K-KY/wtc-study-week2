@@ -4,6 +4,8 @@ import baseball.NumberGenerator.NumberGenerator;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -16,6 +18,13 @@ public class ClassTest extends NsTest {
         NumberGenerator n2 = NumberGenerator.getInstance();
         assertThat(n1).isEqualTo(n2);
         assertThat(n1.getGeneratedNumbers()).isEqualTo(n2.getGeneratedNumbers());
+    }
+    @Test
+    void 수정이_불가능() {
+        List<Integer> list = NumberGenerator.getInstance().getGeneratedNumbers();
+        assertThatThrownBy(() -> list.add(1))
+                .isInstanceOf(UnsupportedOperationException.class);
+
     }
     @Test
     void 숫자가_아닐때_예외() {
