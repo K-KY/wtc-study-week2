@@ -22,7 +22,6 @@ public class ResultOutput {
     private void printNothing(int nothing) {
         if (nothing == 3) {
             System.out.print("낫싱");
-            System.out.println();
         }
     }
 }
